@@ -2,11 +2,11 @@
 
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Front\FrontController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [FrontController::class, 'home'])->name('home');
+Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 
 // Admin
 Route::middleware('admin')->prefix('admin')->group(function () {

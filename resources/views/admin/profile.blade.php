@@ -65,14 +65,13 @@
                         <form id="profileForm" action="{{ route('admin_profile_submit') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
-                                <!-- Left Column -->
                                 <div class="col-md-4">
                                     <div class="mb-3 text-center">
                                         
                                         <img src="{{ asset('uploads/' . Auth::guard('admin')->user()->photo) }}" class="profile-photo-preview mb-3" width="200" alt="Profile Photo">
 
                                         <input type="file" class="form-control" name="photo" id="photoInput">
-                                        <small class="form-text text-muted">Choose a new photo to crop.</small>
+                                        <small class="form-text text-muted">Choose a new photo</small>
                                     </div>
 
                                     <div id="previewContainer" style="display: none;">
@@ -80,11 +79,9 @@
                                         <img id="imagePreview" class="img-fluid rounded" style="max-height: 300px;">
                                     </div>
 
-                                    <!-- Hidden Cropped Image -->
                                     <input type="hidden" name="cropped_image" id="croppedImageInput">
                                 </div>
-
-                                <!-- Right Column -->
+                              
                                 <div class="col-md-8">
                                     <div class="mb-3">
                                         <label class="form-label">Name *</label>
@@ -108,11 +105,11 @@
                                         </button>
                                     </div>
                                 </div>
-                            </div> <!-- row -->
+                            </div>
                         </form>
-                    </div> <!-- card -->
-                </div> <!-- col -->
-            </div> <!-- row -->
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </div>
