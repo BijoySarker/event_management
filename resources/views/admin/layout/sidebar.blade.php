@@ -36,11 +36,18 @@
                 </ul>
             </li>
 
+            <li class="{{ request()->is('admin/profile*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin_profile') }}">
+                    <i class="fas fa-user-circle"></i> <span>Profile</span>
+                </a>
+            </li>
+            
             <li class="{{ request()->is('admin/setting*') ? 'active' : '' }}">
                 <a class="nav-link" href="">
                     <i class="fas fa-cogs"></i> <span>Settings</span>
                 </a>
             </li>
+
 
             <li class="{{ request()->is('admin/form*') ? 'active' : '' }}">
                 <a class="nav-link" href="">

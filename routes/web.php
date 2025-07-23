@@ -10,9 +10,9 @@ Route::get('/', function () {
 
 // Admin
 Route::middleware('admin')->prefix('admin')->group(function () {
-    Route::get('/profile', [AdminAuthController::class, 'profile'])->name('admin_profile');
     Route::get('/dashboard', [AdminDashboardController::class, 'dashboard'])->name('admin_dashboard');
-    Route::post('/profile', [AdminAuthController::class, 'profile_update'])->name('admin_profile_update');
+    Route::get('/profile', [AdminAuthController::class, 'profile'])->name('admin_profile');
+    Route::post('/profile', [AdminAuthController::class, 'profile_submit'])->name('admin_profile_submit');
 });
 Route::prefix('admin')->group(function () {
     Route::get('/', function () {
