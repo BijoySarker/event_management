@@ -41,10 +41,10 @@
                     <i class="fas fa-user-circle"></i> <span>Profile</span>
                 </a>
             </li>
-            
+
             <li class="{{ request()->is('admin/setting*') ? 'active' : '' }}">
-                <a class="nav-link" href="">
-                    <i class="fas fa-cogs"></i> <span>Settings</span>
+                <a class="nav-link" href="{{ route('admin_home_banner') }}">
+                    <i class="fas fa-image"></i> <span>Home Banner</span>
                 </a>
             </li>
 

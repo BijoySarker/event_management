@@ -11,9 +11,12 @@
 <script src="{{ asset('dist-front/js/jquery.scrollTo.js') }}"></script>
 <script src="{{ asset('dist-front/js/typed.js') }}"></script>
 <script src="{{ asset('dist-front/js/custom.js') }}"></script>
+@php
+$home_banner_data = App\Models\HomeBanner::where('id', 1)->first();
+@endphp
 <script>
     $(".countDown").downCount({
-        date: '08/01/2025 12:00:00', //month/date/year   HH:MM:SS
+        date: '{{ $home_banner_data->event_date }} {{ $home_banner_data->event_time }}',
         offset: +6 //+GMT
     });
 </script>

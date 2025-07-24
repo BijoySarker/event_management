@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Mail\Websitemail;
+use App\Models\HomeBanner;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,8 @@ class FrontController extends Controller
 {
     public function home()
     {
-        return view('front.home');
+        $home_banner = HomeBanner::where('id', 1)->first();
+        return view('front.home', compact('home_banner'));
     }
 
     public function contact()
@@ -121,20 +123,17 @@ class FrontController extends Controller
 
         $admin = User::findOrFail(Auth::id());
 
-        // Handle profile photo
         if ($request->hasFile('photo')) {
             // Delete old photo
             if ($admin->photo && file_exists(public_path('uploads/' . $admin->photo))) {
                 unlink(public_path('uploads/' . $admin->photo));
             }
 
-            // Save new photo
             $final_name = 'user_' . time() . '.' . $request->photo->extension();
             $request->photo->move(public_path('uploads'), $final_name);
             $admin->photo = $final_name;
         }
 
-        // Update password only if filled
         if ($request->password) {
             $request->validate([
                 'password' => ['required'],
@@ -143,7 +142,6 @@ class FrontController extends Controller
             $admin->password = Hash::make($request->password);
         }
 
-        // Update profile fields
         $admin->name = $request->name;
         $admin->email = $request->email;
         $admin->phone = $request->phone;

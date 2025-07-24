@@ -2,47 +2,69 @@
 
 @section('main_content')
 
-<div class="container-fluid home-banner" style="background-image:url({{ asset('dist-front/images/banner-home.jpg') }})">
+<div class="container-fluid home-banner" style="background-image:url({{ asset('uploads/'.$home_banner->background) }})">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="static-banner-detail">
-                    <h4>August 01 2025, Dhaka</h4>
-                    <h2>Event and Conference Website</h2>
+                    <h4>{{ $home_banner->subheading }}</h4>
+                    <h2>{{ $home_banner->heading }}</h2>
+                    @if($home_banner->text != '')
                     <p>
-                        Join us at our next networking event and conference! Connect with industry professionals, engage in insightful discussions, and attend hands-on workshops. Learn from experts, collaborate on innovative ideas, and build lasting relationships.
+                        {!! $home_banner->text !!}
                     </p>
+                    @endif
+
+                    @php
+                        $format = 'm/d/y H:i:s';
+
+                        $now = date('m/d/y H:i:s');
+                        $eventDateTime = date('m/d/y H:i:s', strtotime($home_banner->event_date . ' ' . $home_banner->event_time));
+
+                        $d1 = DateTime::createFromFormat($format, $now);
+                        $d2 = DateTime::createFromFormat($format, $eventDateTime);
+
+                        if ($d1 && $d2) {
+                            $interval = $d1->diff($d2);
+                            $days = $interval->days;
+                            $hours = $interval->h;
+                            $minutes = $interval->i;
+                        } else {
+                            $days = $hours = $minutes = 0; // fallback
+                        }
+                    @endphp
+
                     <div class="counter-area">
                         <div class="countDown clearfix">
                             <div class="row count-down-bg">
                                 <div class="col-lg-3 col-sm-6 col-xs-12">
                                     <div class="single-count day">
-                                        <h1 class="days">46</h1>
+                                        <h1 class="days">{{ $days }}</h1>
                                         <p class="days_ref">days</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-sm-6 col-xs-12">
                                     <div class="single-count hour">
-                                        <h1 class="hours">09</h1>
+                                        <h1 class="hours">{{ $hours }}</h1>
                                         <p class="hours_ref">hours</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-sm-6 col-xs-12">
                                     <div class="single-count min">
-                                        <h1 class="minutes">55</h1>
+                                        <h1 class="minutes">{{ $minutes }}</h1>
                                         <p class="minutes_ref">minutes</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-sm-6 col-xs-12">
                                     <div class="single-count second">
-                                        <h1 class="seconds">02</h1>
+                                        <h1 class="seconds">00</h1>
                                         <p class="seconds_ref">seconds</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <a href="buy.html" class="banner_btn video_btn">BUY TICKETS</a>
+                    <a href="" class="banner_btn video_btn">BUY TICKETS</a>
                 </div>
             </div>
         </div>
@@ -75,6 +97,7 @@
         </div>
     </div>
 </section>
+
 
 
 
@@ -137,22 +160,22 @@
 <div id="counter-section" class="pt_70 pb_70" style="background-image: url({{ asset('dist-front/images/counter-bg.jpg') }});">
     <div class="container">
         <div class="row number-counters text-center">
-            <div class="col-lg-3 col-sm-6 col-xs-12"> 
+            <div class="col-lg-3 col-sm-6 col-xs-12">
                 <div class="counters-item">
                     <i class="fa fa-calendar"></i>
                     <strong data-to="3">0</strong>
                     <p>Days Event</p>
                 </div>
             </div>
-            
-            <div class="col-lg-3 col-sm-6 col-xs-12"> 
+
+            <div class="col-lg-3 col-sm-6 col-xs-12">
                 <div class="counters-item">
                 <i class="fa fa-user"></i>
                     <strong data-to="8">0</strong>
                     <p>Speakers</p>
                 </div>
             </div>
-            
+
             <div class="col-lg-3 col-sm-6 col-xs-12">
                 <div class="counters-item">
                     <i class="fa fa-users"></i>
@@ -160,7 +183,7 @@
                     <p>Members Registered</p>
                 </div>
             </div>
-            
+
             <div class="col-lg-3 col-sm-6 col-xs-12">
                 <div class="counters-item">
                     <i class="fa fa-th-list"></i>
@@ -189,7 +212,7 @@
         </div>
 
 
-        <div class="row pt_40"> 
+        <div class="row pt_40">
 
             <div class="col-md-4 col-sm-12">
                 <div class="info">
@@ -242,7 +265,7 @@
     </div>
 </div>
 
- 
+
 <div id="blog-section" class="pt_70 pb_70 white blog-section">
     <div class="container">
         <div class="row">
