@@ -58,7 +58,7 @@
                         </div>
                         <div class="text">
                             <div class="contact-inner-text">
-                                Address: <br><span>43, Park Street, NYC, USA</span>
+                                Address: <br><span>Dhaka, Bangladesh</span>
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                         </div>
                         <div class="text">
                             <div class="contact-inner-text">
-                                Email: <br><span>contact@example.com</span>
+                                Email: <br><span>bijoybp7538@gmail.com</span>
                             </div>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                         </div>
                         <div class="text">
                             <div class="contact-inner-text">
-                                Phone: <br><span>234-423-1266</span>
+                                Phone: <br><span>+8801314447426</span>
                             </div>
                         </div>
                     </div>

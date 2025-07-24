@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "88970a0117c062eed55fa8728fc43833",
+    "content-hash": "fba0f60f9e51d339a08fe8e71c271f9d",
     "packages": [
         {
             "name": "brick/math",
@@ -5779,6 +5779,76 @@
         }
     ],
     "packages-dev": [
+        {
+            "name": "dcblogdev/laravel-junie",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dcblogdev/laravel-junie.git",
+                "reference": "42892c6f2a5d1437216d1f5deefb16c05f21c36c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dcblogdev/laravel-junie/zipball/42892c6f2a5d1437216d1f5deefb16c05f21c36c",
+                "reference": "42892c6f2a5d1437216d1f5deefb16c05f21c36c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^12.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.13",
+                "orchestra/testbench": "^10.0",
+                "pestphp/pest": "^3.7",
+                "pestphp/pest-plugin-type-coverage": "^3.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "Junie": "Dcblogdev\\Junie\\Facades\\Junie"
+                    },
+                    "providers": [
+                        "Dcblogdev\\Junie\\JunieServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dcblogdev\\Junie\\": "src/",
+                    "Dcblogdev\\Junie\\Tests\\": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "David Carr",
+                    "email": "dave@dcblog.dev",
+                    "homepage": "https://dcblog.dev"
+                }
+            ],
+            "description": "Install pre-configured guides for Jetbrains Junie",
+            "homepage": "https://github.com/dcblogdev/laravel-junie",
+            "keywords": [
+                "Junie",
+                "jetbrains",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/dcblogdev/laravel-junie/issues",
+                "source": "https://github.com/dcblogdev/laravel-junie/tree/v1.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/dcblogdev",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-05-17T02:35:33+00:00"
+        },
         {
             "name": "fakerphp/faker",
             "version": "v1.24.1",

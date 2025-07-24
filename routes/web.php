@@ -7,6 +7,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontController::class, 'home'])->name('home');
 Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
+Route::get('/registration', [FrontController::class, 'registration'])->name('registration');
+Route::post('/registration_submit', [FrontController::class, 'registration_submit'])->name('registration_submit');
+Route::get('/registration_verify/{token}/{email}', [FrontController::class, 'registration_verify'])->name('registration_verify');
+Route::get('/login', [FrontController::class, 'login'])->name('login');
+Route::post('/login', [FrontController::class, 'login_submit'])->name('login_submit');
+Route::get('/forget-password', [FrontController::class, 'forget_password'])->name('forget_password');
+Route::post('/forget-password', [FrontController::class, 'forget_password_submit'])->name('forget_password_submit');
+Route::get('/reset-password/{token}/{email}', [FrontController::class, 'reset_password'])->name('reset_password');
+Route::post('/reset-password/{token}/{email}', [FrontController::class, 'reset_password_submit'])->name('reset_password_submit');
+
+// User
+Route::middleware('auth')->prefix('user')->group(function () {
+    Route::get('/dashboard', [FrontController::class, 'dashboard'])->name('user_dashboard');
+    Route::get('/profile', [FrontController::class, 'profile'])->name('user_profile');
+    Route::post('/profile', [FrontController::class, 'profile_submit'])->name('user_profile_submit');
+    Route::get('/logout', [FrontController::class, 'logout'])->name('logout');
+});
 
 // Admin
 Route::middleware('admin')->prefix('admin')->group(function () {
