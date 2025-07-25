@@ -43,6 +43,6 @@ class AdminHomeBannerController extends Controller
         $home_banner->event_time = $request->event_time;
         $home_banner->update();
 
-        return redirect()->back()->with('success', 'Hom Banner is Updated!');
+        return redirect()->back()->with('success', 'Home Banner is Updated!');
     }
 }

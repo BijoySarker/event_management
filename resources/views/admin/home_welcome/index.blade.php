@@ -3,9 +3,6 @@
     @include('admin.layout.nav')
     @include('admin.layout.sidebar')
 
-    <!-- CropperJS CSS -->
-    <link href="https://unpkg.com/cropperjs@1.5.13/dist/cropper.min.css" rel="stylesheet" />
-
     <style>
         .profile-photo-preview {
             max-width: 100%;
@@ -40,15 +37,15 @@
             border-radius: 8px;
         }
 
-        .h_100 {
-            height: 100px;
+        .h_200 {
+            height: 200px;
         }
     </style>
 
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Edit Home Banner Information</h1>
+                <h1>Edit Home Welcome Information</h1>
             </div>
 
             <div class="section-body">
@@ -72,47 +69,48 @@
                         @endif
 
                         <div class="card p-4">
-                            <form id="profileForm" action="{{ route('admin_home_banner_update') }}" method="POST" enctype="multipart/form-data">
+                            <form id="profileForm" action="{{ route('admin_home_welcome_update') }}" method="post" enctype="multipart/form-data">
                                 @csrf
 
                                 <div class="mb-4">
-                                    <label class="form-label">Existing Background</label>
+                                    <label class="form-label">Existing Photo</label>
                                     <div>
-                                        <img src="{{ asset('uploads/'.$home_banner->background) }}" alt="Home Banner" class="w_200 profile-photo-preview">
+                                        <img src="{{ asset('uploads/'.$home_welcome->photo) }}" alt="Welcome Photo" class="w_200 profile-photo-preview">
                                     </div>
                                 </div>
 
                                 <div class="mb-4">
-                                    <label class="form-label">Change Background</label>
-                                    <input type="file" name="background" class="form-control">
+                                    <label class="form-label">Change Photo</label>
+                                    <input type="file" name="photo" class="form-control">
                                 </div>
 
                                 <div class="mb-4">
-                                    <label class="form-label">Heading</label>
-                                    <input type="text" class="form-control" name="heading" value="{{ trim($home_banner->heading) }}">
+                                    <label class="form-label">Heading *</label>
+                                    <input type="text" class="form-control" name="heading" value="{{ trim($home_welcome->heading) }}">
                                 </div>
 
                                 <div class="mb-4">
-                                    <label class="form-label">Subheading</label>
-                                    <input type="text" class="form-control" name="subheading" value="{{ trim($home_banner->subheading) }}">
+                                    <label class="form-label">Description *</label>
+                                    <textarea class="form-control h_200" name="description" rows="6">{{ trim($home_welcome->description) }}</textarea>
                                 </div>
 
-                                <div class="mb-4">
-                                    <label class="form-label">Text</label>
-                                    <textarea class="form-control h_100" name="text" rows="4">{{ trim($home_banner->text) }}</textarea>
-                                </div>
-
-                                <div class="row mb-4">
-                                    <div class="col-md-6">
-                                        <label class="form-label">Event Date</label>
-                                        <input type="date" class="form-control" name="event_date"
-                                               value="{{ $home_banner->event_date ? \Carbon\Carbon::parse($home_banner->event_date)->format('Y-m-d') : '' }}">
+                                <div class="row">
+                                    <div class="col-md-4 mb-4">
+                                        <label class="form-label">Button Text</label>
+                                        <input type="text" class="form-control" name="button_text" value="{{ trim($home_welcome->button_text) }}">
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <label class="form-label">Event Time</label>
-                                        <input type="time" class="form-control" name="event_time"
-                                               value="{{ $home_banner->event_time ? \Carbon\Carbon::parse($home_banner->event_time)->format('H:i') : '' }}">
+                                    <div class="col-md-5 mb-4">
+                                        <label class="form-label">Button Link</label>
+                                        <input type="text" class="form-control" name="button_link" value="{{ trim($home_welcome->button_link) }}">
+                                    </div>
+
+                                    <div class="col-md-3 mb-4">
+                                        <label class="form-label">Status</label>
+                                        <select class="form-select" name="status">
+                                            <option value="Show" @if(strtolower($home_welcome->status) == 'show') selected @endif>Show</option>
+                                            <option value="Hide" @if(strtolower($home_welcome->status) == 'hide') selected @endif>Hide</option>
+                                        </select>
                                     </div>
                                 </div>
 
@@ -121,7 +119,6 @@
                                         <i class="fas fa-save me-1"></i> Update
                                     </button>
                                 </div>
-
                             </form>
                         </div>
                     </div>

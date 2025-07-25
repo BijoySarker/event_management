@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
 
-    <link rel="icon" type="image/png" href="{{ asset("uploads/favicon.png") }}">
+    <link rel="icon" type="image/png" href="{{ asset("uploads/logo.png") }}">
 
     <title>Admin Panel</title>
 
@@ -47,7 +47,7 @@
 <body>
 <div id="app">
     <div class="main-wrapper">
-        
+
         @yield('main_content')
 
     </div>

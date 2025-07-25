@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Mail\Websitemail;
 use App\Models\HomeBanner;
+use App\Models\HomeWelcome;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +17,8 @@ class FrontController extends Controller
     public function home()
     {
         $home_banner = HomeBanner::where('id', 1)->first();
-        return view('front.home', compact('home_banner'));
+        $home_welcome = HomeWelcome::where('id', 1)->first();
+        return view('front.home', compact('home_banner', "home_welcome"));
     }
 
     public function contact()

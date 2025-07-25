@@ -18,54 +18,42 @@
                 </a>
             </li>
 
-            <li class="nav-item dropdown {{ request()->is('admin/item1*') || request()->is('admin/item2*') ? 'active' : '' }}">
-                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">
-                    <i class="fas fa-layer-group"></i> <span>Dropdown Items</span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li class="{{ request()->is('admin/item1*') ? 'active' : '' }}">
-                        <a class="nav-link" href="">
-                            <i class="fas fa-angle-right"></i> Item 1
-                        </a>
-                    </li>
-                    <li class="{{ request()->is('admin/item2*') ? 'active' : '' }}">
-                        <a class="nav-link" href="">
-                            <i class="fas fa-angle-right"></i> Item 2
-                        </a>
-                    </li>
-                </ul>
-            </li>
+{{--            <li class="nav-item dropdown {{ request()->is('admin/item1*') || request()->is('admin/item2*') ? 'active' : '' }}">--}}
+{{--                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown">--}}
+{{--                    <i class="fas fa-layer-group"></i> <span>Dropdown Items</span>--}}
+{{--                </a>--}}
+{{--                <ul class="dropdown-menu">--}}
+{{--                    <li class="{{ request()->is('admin/item1*') ? 'active' : '' }}">--}}
+{{--                        <a class="nav-link" href="">--}}
+{{--                            <i class="fas fa-angle-right"></i> Item 1--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                    <li class="{{ request()->is('admin/item2*') ? 'active' : '' }}">--}}
+{{--                        <a class="nav-link" href="">--}}
+{{--                            <i class="fas fa-angle-right"></i> Item 2--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
+{{--            </li>--}}
 
-            <li class="{{ request()->is('admin/profile*') ? 'active' : '' }}">
+            <li class="{{ request()->routeIs('admin_profile') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin_profile') }}">
                     <i class="fas fa-user-circle"></i> <span>Profile</span>
                 </a>
             </li>
 
-            <li class="{{ request()->is('admin/setting*') ? 'active' : '' }}">
+            <li class="{{ request()->routeIs('admin_home_banner') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('admin_home_banner') }}">
                     <i class="fas fa-image"></i> <span>Home Banner</span>
                 </a>
             </li>
 
-
-            <li class="{{ request()->is('admin/form*') ? 'active' : '' }}">
-                <a class="nav-link" href="">
-                    <i class="fas fa-edit"></i> <span>Form</span>
+            <li class="{{ request()->routeIs('admin_home_welcome') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin_home_welcome') }}">
+                    <i class="fas fa-handshake"></i> <span>Home Welcome</span>
                 </a>
             </li>
 
-            <li class="{{ request()->is('admin/table*') ? 'active' : '' }}">
-                <a class="nav-link" href="">
-                    <i class="fas fa-table"></i> <span>Table</span>
-                </a>
-            </li>
-
-            <li class="{{ request()->is('admin/invoice*') ? 'active' : '' }}">
-                <a class="nav-link" href="">
-                    <i class="fas fa-file-invoice-dollar"></i> <span>Invoice</span>
-                </a>
-            </li>
         </ul>
     </aside>
 </div>
