@@ -8,13 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class HomeBanner extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'heading',
-        'subheading',
-        'text',
-        'background',
-        'event_date',
-        'event_time',
-    ];
 }

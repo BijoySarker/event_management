@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Mail\Websitemail;
 use App\Models\HomeBanner;
 use App\Models\HomeWelcome;
+use App\Models\HomeCounter;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +19,8 @@ class FrontController extends Controller
     {
         $home_banner = HomeBanner::where('id', 1)->first();
         $home_welcome = HomeWelcome::where('id', 1)->first();
-        return view('front.home', compact('home_banner', "home_welcome"));
+        $home_counter = HomeCounter::where('id', 1)->first();
+        return view('front.home', compact("home_banner", "home_welcome", "home_counter"));
     }
 
     public function contact()

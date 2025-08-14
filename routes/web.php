@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminHomeBannerController;
 use App\Http\Controllers\Admin\AdminHomeWelcomeController;
+use App\Http\Controllers\Admin\AdminHomeCounterController;
 use App\Http\Controllers\Front\FrontController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,6 +37,8 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::post('/home-banner', [AdminHomeBannerController::class, 'update'])->name('admin_home_banner_update');
     Route::get('/home-welcome', [AdminHomeWelcomeController::class, 'index'])->name('admin_home_welcome');
     Route::post('/home-welcome', [AdminHomeWelcomeController::class, 'update'])->name('admin_home_welcome_update');
+    Route::get('/home-counter', [AdminHomeCounterController::class, 'index'])->name('admin_home_counter');
+    Route::post('/home-counter', [AdminHomeCounterController::class, 'update'])->name('admin_home_counter_update');
 });
 Route::prefix('admin')->group(function () {
     Route::get('/', function () {

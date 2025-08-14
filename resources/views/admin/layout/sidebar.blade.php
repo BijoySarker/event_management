@@ -54,6 +54,12 @@
                 </a>
             </li>
 
+            <li class="{{ request()->routeIs('admin_home_counter') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin_home_counter') }}">
+                    <i class="fas fa-chart-bar"></i> <span>Home Counter</span>
+                </a>
+            </li>
+
         </ul>
     </aside>
 </div>
